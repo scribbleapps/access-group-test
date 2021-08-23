@@ -44,8 +44,8 @@ public class ApplicationHelper extends Application {
     // If our first user is not already present, add just the username and password
     public void addFirstUser(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        if (getUser("u") == null) {
-            User user = new User("u", "p", "", "", "", "", "");
+        if (getUser("testuser") == null) {
+            User user = new User("testuser", "Password1", "", "", "", "", "");
             Gson gson = new Gson();
             prefs.edit().putString(user.getUsername(), gson.toJson(user)).apply();
         }

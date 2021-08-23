@@ -61,9 +61,10 @@ public class InstrumentedTests {
 
     @Test
     public void checkLoginDetailsReturnsCorrectly() {
-        assertEquals(true, loginViewModel.checkLoginDetails("u", "p"));
+        assertEquals(true, loginViewModel.checkLoginDetails("testuser", "Password1"));
         assertEquals(false, loginViewModel.checkLoginDetails("bob", "sandwiches"));
-        assertEquals(false, loginViewModel.checkLoginDetails("U", "P"));
+        assertEquals(false, loginViewModel.checkLoginDetails("testuser", "password1"));
+        assertEquals(false, loginViewModel.checkLoginDetails("", ""));
     }
 
     @Test
