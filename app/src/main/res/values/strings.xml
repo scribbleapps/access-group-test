@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Access Care Test</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="refresh">Refresh</string>
     <string name="year_of_birth">Year of Birth</string>
     <string name="access_logo">Access Logo</string>
