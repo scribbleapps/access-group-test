@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProfileFragment" >
+
+    <TextView
+        android:id="@+id/profileNameTextView"
+        style="@style/Custom.Style.Text.Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/vertical_space_margin_small"
+        android:textSize="@dimen/header_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/profileImageViewUserPhoto"
+        app:layout_constraintEnd_toEndOf="@+id/profileImageViewUserPhoto"
+        app:layout_constraintStart_toStartOf="@+id/profileImageViewUserPhoto"
+        tools:text="Name Placeholder" />
+
+    <ImageView
+        android:id="@+id/profileImageViewUserPhoto"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:layout_marginBottom="150dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/profile_photo" />
+
+    <Button
+        android:id="@+id/profileButtonMoreInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_space_margin_small"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:text="@string/more_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileImageViewUserPhoto" />
+
+    <Button
+        android:id="@+id/profileButtonAbout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_space_extra_small_margin"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:text="@string/about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileButtonMoreInfo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

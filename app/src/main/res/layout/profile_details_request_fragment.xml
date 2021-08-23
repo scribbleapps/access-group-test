@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ProfileDetailsRequestFragment" >
+
+    <TextView
+        android:id="@+id/profileDetailsRequestInstructionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:layout_marginBottom="@dimen/vertical_space_extra_small_margin"
+        android:text="@string/details_request_prompt"
+        android:textSize="@dimen/standard_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/profileDetailsRequestFirstNameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/profileDetailsRequestFirstNameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:layout_marginBottom="@dimen/vertical_space_extra_small_margin"
+        android:ems="10"
+        android:hint="@string/first_name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/profileDetailsRequestSurnameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/profileDetailsRequestSurnameEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:layout_marginBottom="@dimen/vertical_space_extra_small_margin"
+        android:ems="10"
+        android:hint="@string/surname"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/profileDetailsRequestEmailEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/profileDetailsRequestEmailEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_space_extra_small_margin"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/profileDetailsRequestCameraButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_space_extra_small_margin"
+        android:text="@string/take_photo"
+        app:layout_constraintEnd_toEndOf="@+id/profileDetailsRequestYearOfBirthTextView"
+        app:layout_constraintStart_toStartOf="@+id/profileDetailsRequestYearOfBirthTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profileDetailsRequestYearOfBirthTextView" />
+
+    <Button
+        android:id="@+id/profileDetailsRequestSaveButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/vertical_space_extra_small_margin"
+        android:text="@string/save"
+        app:layout_constraintEnd_toEndOf="@+id/profileDetailsRequestCameraButton"
+        app:layout_constraintStart_toStartOf="@+id/profileDetailsRequestCameraButton"
+        app:layout_constraintTop_toBottomOf="@+id/profileDetailsRequestCameraButton" />
+
+    <EditText
+        android:id="@+id/profileDetailsRequestYearOfBirthTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_horizontal_margin"
+        android:layout_marginTop="@dimen/vertical_space_extra_small_margin"
+        android:layout_marginEnd="@dimen/standard_horizontal_margin"
+        android:ems="10"
+        android:hint="@string/year_of_birth_prompt"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileDetailsRequestEmailEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

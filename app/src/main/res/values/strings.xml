@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Access Care Test</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="refresh">Refresh</string>
+    <string name="year_of_birth">Year of Birth</string>
+    <string name="access_logo">Access Logo</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="more_info">More info</string>
+    <string name="about">About</string>
+    <string name="details_request_prompt">Please complete and save your details below to create your profile. You will then be taken to your new profile.</string>
+    <string name="first_name">First name</string>
+    <string name="surname">Surname</string>
+    <string name="email">Email</string>
+    <string name="take_photo">Take photo</string>
+    <string name="save">Save</string>
+    <string name="year_of_birth_prompt">Year of birth, i.e. 1980</string>
+    <string name="retake_photo">Retake Photo</string>
+    <string name="photo_taken_success">Photo saved successfully</string>
+    <string name="profile_photo">Profile Photo</string>
+</resources>

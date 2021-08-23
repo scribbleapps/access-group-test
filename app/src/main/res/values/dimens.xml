@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="standard_horizontal_margin">64dp</dimen>
+    <dimen name="vertical_space_extra_small_margin">16dp</dimen>
+    <dimen name="vertical_space_margin_small">32dp</dimen>
+    <dimen name="vertical_space_margin_large">64dp</dimen>
+    <dimen name="button_padding">20dp</dimen>
+    <dimen name="header_text_size">20sp</dimen>
+    <dimen name="email_link_text_size">18sp</dimen>
+    <dimen name="standard_text_size">18sp</dimen>
+
+</resources>
