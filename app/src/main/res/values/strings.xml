@@ -18,4 +18,5 @@
     <string name="retake_photo">Retake Photo</string>
     <string name="photo_taken_success">Photo saved successfully</string>
     <string name="profile_photo">Profile Photo</string>
+    <string name="fingerprint_login">Fingerprint login</string>
 </resources>

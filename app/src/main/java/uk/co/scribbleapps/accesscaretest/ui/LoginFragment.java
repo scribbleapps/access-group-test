@@ -1,6 +1,10 @@
 package uk.co.scribbleapps.accesscaretest.ui;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,13 +17,17 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.security.Signature;
 import java.util.Objects;
+import java.util.concurrent.Executor;
 
 import uk.co.scribbleapps.accesscaretest.R;
 import uk.co.scribbleapps.accesscaretest.viewmodels.LoginViewModel;
@@ -30,6 +38,13 @@ public class LoginFragment extends Fragment {
     private EditText editTextPassword;
     private EditText editTextUserName;
     private LoginViewModel viewModel;
+    private CancellationSignal cancellationSignal;
+    private BiometricPrompt.AuthenticationCallback  authenticationCallback;
+    private LoginViewModel loginViewModel;
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+    private Button biometricLoginButton;
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -73,6 +88,7 @@ public class LoginFragment extends Fragment {
     }
 
     // Get our references to the Layout Views, and set a login button listener
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     public void onViewCreated(@NonNull @NotNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -95,6 +111,54 @@ public class LoginFragment extends Fragment {
                 login(username, password);
             }
         });
+
+        viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        biometricLoginButton = view.findViewById(R.id.loginButtonFingerprint);
+
+        if(checkBiometricSupport()) {
+
+            executor = ContextCompat.getMainExecutor(requireContext());
+            biometricPrompt = new BiometricPrompt((FragmentActivity) requireContext(),
+                    executor, new BiometricPrompt.AuthenticationCallback() {
+                @Override
+                public void onAuthenticationError(int errorCode,
+                                                  @NonNull CharSequence errString) {
+                    super.onAuthenticationError(errorCode, errString);
+                    Toast.makeText(requireContext(),
+                            "Authentication error: " + errString, Toast.LENGTH_SHORT)
+                            .show();
+                }
+
+                @Override
+                public void onAuthenticationSucceeded(
+                        @NonNull BiometricPrompt.AuthenticationResult result) {
+                    super.onAuthenticationSucceeded(result);
+                    Toast.makeText(requireContext(),
+                            "Authentication succeeded!", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onAuthenticationFailed() {
+                    super.onAuthenticationFailed();
+                    Toast.makeText(requireContext(), "Authentication failed",
+                            Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
+
+            promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                    .setTitle("Biometric login for my app")
+                    .setSubtitle("Log in using your biometric credential")
+                    .setNegativeButtonText("Use account password")
+                    .build();
+
+            biometricLoginButton.setOnClickListener(v -> {
+                biometricPrompt.authenticate(promptInfo);
+            });
+
+        } else {
+            biometricLoginButton.setVisibility(View.GONE);
+        }
     }
 
     /* On selecting login - check is username and password is correct - if so, check whether a profile
@@ -115,6 +179,26 @@ public class LoginFragment extends Fragment {
         } else {
             Toast.makeText(getContext(), "Incorrect details", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.P)
+    private boolean checkBiometricSupport() {
+        /*if(!viewModel.keyguardManagerAndPermissionCheck()) {
+            notifyUser("Fingerprint has not been enabled in settings.");
+            return false;
+        }
+        else if(!viewModel.deviceHasFingerprintScanner()) {
+            notifyUser("This device does not have a fingerprint scanner.");
+            return false;
+        }
+        else {
+            return true;
+        }*/
+        return true;
+    }
+
+    private void notifyUser(String message) {
+        Toast.makeText(this.requireContext(), message, Toast.LENGTH_SHORT).show();
     }
 
 }
