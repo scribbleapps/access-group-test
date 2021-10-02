@@ -49,8 +49,4 @@ public class LoginViewModel extends AndroidViewModel {
         return getApplication().getPackageManager().hasSystemFeature(PackageManager.FEATURE_FINGERPRINT);
     }
 
-
-
-
-
 }

@@ -1,10 +1,7 @@
 package uk.co.scribbleapps.accesscaretest.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.biometric.BiometricPrompt;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.CancellationSignal;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,6 +15,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -25,7 +24,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.security.Signature;
 import java.util.Objects;
 import java.util.concurrent.Executor;
 
@@ -38,9 +36,6 @@ public class LoginFragment extends Fragment {
     private EditText editTextPassword;
     private EditText editTextUserName;
     private LoginViewModel viewModel;
-    private CancellationSignal cancellationSignal;
-    private BiometricPrompt.AuthenticationCallback  authenticationCallback;
-    private LoginViewModel loginViewModel;
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
