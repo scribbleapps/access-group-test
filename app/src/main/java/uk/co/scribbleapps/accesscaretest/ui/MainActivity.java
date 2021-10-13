@@ -1,12 +1,16 @@
 package uk.co.scribbleapps.accesscaretest.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import java.lang.reflect.Field;
+
 import uk.co.scribbleapps.accesscaretest.R;
+import uk.co.scribbleapps.accesscaretest.data.User;
 import uk.co.scribbleapps.accesscaretest.util.ApplicationHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         replaceFragment(LoginFragment.newInstance(), false);
+
+        User user = new User("testuser", "Password1", "John",
+                "Smith", "john@email.com", "1980", "uri/here");
+
+        Field[] fields = user.getClass().getDeclaredFields();
+
+        Log.d(TAG, "onCreate: test");
+
+        for(Field field: fields) {
+            Log.d(TAG, "onCreate: field: " + field);
+        }
+
     }
 
     /* Fragments that we only want to appear once such as ProfileDetailsRequestFragment
@@ -43,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
                     //.addToBackStack(fragment.toString()) // name can be null
                     .commit();
         }
+    }
+
+    public static int returnAnInt() {
+        int i = 5;
+        int j = 6;
+        int k = i*j;
+        return k;
     }
 
 }

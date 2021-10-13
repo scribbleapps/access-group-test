@@ -1,5 +1,6 @@
 package uk.co.scribbleapps.accesscaretest.ui;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;

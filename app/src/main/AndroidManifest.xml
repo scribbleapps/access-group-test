@@ -22,7 +22,6 @@
         android:xlargeScreens="false" />
 
     <application
-
         android:name=".util.ApplicationHelper"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,15 +34,15 @@
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="uk.co.scribbleapps.accesscaretest.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true"
+            android:exported="false">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
 
         <activity android:name=".ui.MainActivity"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

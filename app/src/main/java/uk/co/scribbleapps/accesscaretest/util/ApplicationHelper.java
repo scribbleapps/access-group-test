@@ -41,6 +41,10 @@ public class ApplicationHelper extends Application {
     // Used above in the singleton constructor
     public ApplicationHelper() {}
 
+    public static boolean testingJaCoCoWorks() {
+        return true;
+    }
+
     // If our first user is not already present, add just the username and password
     public void addFirstUser(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
